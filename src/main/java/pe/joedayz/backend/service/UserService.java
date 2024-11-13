@@ -1,6 +1,7 @@
 package pe.joedayz.backend.service;
 
 import org.springframework.stereotype.Service;
+import pe.joedayz.backend.exceptions.UserNotFoundException;
 import pe.joedayz.backend.model.User;
 import pe.joedayz.backend.repo.UserRepository;
 
