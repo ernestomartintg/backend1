@@ -24,4 +24,19 @@ public class UserService {
         return repo.findById(id).orElseThrow(()->
                 new UserNotFoundException("User by id "+id+"was not found"));
     }
+
+    public User updateUser(Long id, User user){
+        User oldUser = getUser(id);
+        oldUser.setName(user.getName());
+        oldUser.setEmail(user.getEmail());
+        oldUser.setUsermame(user.getUsermame());
+        oldUser.setAddress(user.getAddress());
+        oldUser.setPhone(user.getPhone());
+
+        return repo.save(oldUser);
+    }
+
+    public void deleteUser(Long id){
+        repo.deleteById(id);
+    }
 }
