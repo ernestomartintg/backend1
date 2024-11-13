@@ -1,5 +1,7 @@
 package pe.joedayz.backend.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pe.joedayz.backend.exceptions.UserNotFoundException;
 import pe.joedayz.backend.model.User;
@@ -19,6 +21,9 @@ public class UserService {
     public List<User> getUsers(){
         return repo.findAll();
     }
+
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
 
     public User getUser(Long id){
         return repo.findById(id).orElseThrow(()->
